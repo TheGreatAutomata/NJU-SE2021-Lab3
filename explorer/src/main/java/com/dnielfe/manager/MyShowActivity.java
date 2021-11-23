@@ -26,4 +26,9 @@ public class MyShowActivity extends AppCompatActivity {
         textView.setText(message);
     }
 
+    public void myCancel(View view) {
+        // Do something in response to button
+        this.finish();
+    }
+
 }
