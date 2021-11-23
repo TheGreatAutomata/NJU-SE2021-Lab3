@@ -1,14 +1,19 @@
 package com.dnielfe.manager.dialogs;
 
+//import static android.provider.AlarmClock.EXTRA_MESSAGE;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.dnielfe.manager.MyShowActivity;
 import com.dnielfe.manager.R;
 import com.dnielfe.manager.adapters.BrowserTabsAdapter;
 import com.dnielfe.manager.utils.SimpleUtils;
@@ -16,7 +21,7 @@ import com.dnielfe.manager.utils.SimpleUtils;
 import java.io.File;
 
 public final class CreateShowDialog extends DialogFragment {
-
+    public static final String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         final Activity a = getActivity();
@@ -35,18 +40,18 @@ public final class CreateShowDialog extends DialogFragment {
                     public void onClick(DialogInterface dialog, int which) {
                         String name = inputf.getText().toString();
                         String location = BrowserTabsAdapter.getCurrentBrowserFragment().mCurrentPath;
-                        boolean success = false;
+                        boolean success = (name.length() >= 1);
 
-                        if (name.length() >= 1)
-                            success = SimpleUtils.createDir(new File(location, name));
-
-                        if (success)
-                            Toast.makeText(a,
-                                    name + getString(R.string.created),
-                                    Toast.LENGTH_LONG).show();
+                        if (success) {
+                            Activity mActivity = getActivity();
+//                            final AppCompatActivity dialog_temp = new MyShowActivity();
+                            Intent intent = new Intent(mActivity, MyShowActivity.class);
+                            intent.putExtra(EXTRA_MESSAGE, name);
+                            startActivity(intent);
+                        }
                         else
                             Toast.makeText(a,
-                                    getString(R.string.newfolderwasnotcreated),
+                                    "None!!!",
                                     Toast.LENGTH_SHORT).show();
 
                         dialog.dismiss();
