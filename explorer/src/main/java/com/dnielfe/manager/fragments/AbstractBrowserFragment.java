@@ -36,7 +36,7 @@ import com.dnielfe.manager.tasks.PasteTaskExecutor;
 import com.dnielfe.manager.utils.ClipBoard;
 import com.dnielfe.manager.utils.SimpleUtils;
 import com.melnykov.fab.FloatingActionButton;
-
+import com.dnielfe.manager.dialogs.CreateShowDialog;
 import java.io.File;
 import java.lang.ref.WeakReference;
 
@@ -184,7 +184,7 @@ public abstract class AbstractBrowserFragment extends UserVisibleHintFragment im
                 dialog2.show(fm, AbstractBrowserActivity.TAG_DIALOG);
                 return true;
             case R.id.mine1:
-                final DialogFragment dialog3 = new CreateFolderDialog();
+                final DialogFragment dialog3 = new CreateShowDialog();
                 dialog3.show(fm, AbstractBrowserActivity.TAG_DIALOG);
                 return true;
             default:

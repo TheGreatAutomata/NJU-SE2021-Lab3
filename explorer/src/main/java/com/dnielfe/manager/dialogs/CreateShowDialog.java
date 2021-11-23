@@ -15,7 +15,7 @@ import com.dnielfe.manager.utils.SimpleUtils;
 
 import java.io.File;
 
-public final class CreateFolderDialog extends DialogFragment {
+public final class CreateShowDialog extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -23,13 +23,13 @@ public final class CreateFolderDialog extends DialogFragment {
 
         // Set an EditText view to get user input
         final EditText inputf = new EditText(a);
-        inputf.setHint(R.string.enter_name);
+        inputf.setHint("Enter here");
 
         final AlertDialog.Builder b = new AlertDialog.Builder(a);
-        b.setTitle(R.string.createnewfolder);
-        b.setMessage(R.string.createmsg);
+        b.setTitle("Show whatever you write");
+        //b.setMessage(R.string.createmsg);
         b.setView(inputf);
-        b.setPositiveButton(R.string.create,
+        b.setPositiveButton("Show",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -62,4 +62,3 @@ public final class CreateFolderDialog extends DialogFragment {
         return b.create();
     }
 }
-
