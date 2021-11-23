@@ -183,6 +183,10 @@ public abstract class AbstractBrowserFragment extends UserVisibleHintFragment im
                 final DialogFragment dialog2 = new CreateFolderDialog();
                 dialog2.show(fm, AbstractBrowserActivity.TAG_DIALOG);
                 return true;
+            case R.id.mine1:
+                final DialogFragment dialog3 = new CreateFolderDialog();
+                dialog3.show(fm, AbstractBrowserActivity.TAG_DIALOG);
+                return true;
             default:
                 return false;
         }
